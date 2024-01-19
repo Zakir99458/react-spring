@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { useSpring, animated } from '@react-spring/web';
 
 function App() {
+  const props = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  })
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <animated.div style={useSpring({
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        })}> Hello animated text!! 
+  </animated.div>
     </div>
   );
 }
